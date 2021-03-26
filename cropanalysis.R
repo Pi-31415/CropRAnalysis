@@ -1,3 +1,4 @@
+# T Test
 # get the data into the software
 Input =( 
   "grouping height
@@ -24,3 +25,11 @@ summary(Data)
 t.test(height ~ grouping, data=Data, 
        var.equal=TRUE, 
        conf.level=0.95)
+
+box_plot <- ggplot(Data, aes(x = grouping, y = height))
+box_plot +
+  geom_boxplot() +
+  ylim(c(0, 200))+
+  scale_x_discrete() +
+  labs(title = "Monthly Deaths from Lung Diseases in the UK",
+       y = "Height",x="Grouping")
